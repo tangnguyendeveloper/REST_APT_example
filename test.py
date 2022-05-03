@@ -38,9 +38,11 @@ post_js = {
     }
 }
 
-response1 = requests.post("http://127.0.0.1:7777/post_light_distance_js", json=post_js)
+response1 = requests.post("http://52.77.238.126:7777/post_light_distance_js", json=post_js)
 time.sleep(2)
-response = requests.get("http://127.0.0.1:7777/get_led_state_js", json=get_js)
+response = requests.get("http://52.77.238.126:7777/get_led_state_js", json=get_js)
+time.sleep(2)
+response2 = requests.get("http://52.77.238.126:7777/get_led_state")
 
 print("\nPOST")
 print(json.dumps(response1.json(), indent=4))
@@ -49,6 +51,9 @@ print(response1.headers)
 print("\nGET")
 print(json.dumps(response.json(), indent=4))
 print(response.headers)
+
+print("\nGET")
+print(response.content)
 
 database_show()
 

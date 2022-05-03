@@ -45,14 +45,19 @@ def database_add_sensor_value():
 @routes.get("/get_led_state")
 async def get_led_state(request):
     print("/get_led_state");
-    mess = 3
+
+    response_obj = {
+        "status": True,
+        "message": "Response get_led_state",
+        "number_led": -1
+    }
     if current_distance > 200 or current_light > 210:
-        mess = 0
+        response_obj["number_led"] = 0
     else:
-        mess = 3-int(current_light/70)
+        response_obj["number_led"] = 3-int(current_light/70)
     
-    return web.Response(
-            text=f"{mess}"
+    return web.json_response(
+            data=response_obj
         )
 
 
