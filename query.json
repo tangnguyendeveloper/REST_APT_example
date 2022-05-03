@@ -1,0 +1,7 @@
+{
+    "init_data": "INSERT INTO Sensor (sensor_id, sensor_name, descriptions) VALUES (0, 'BH1750', 'light sensor'), (1, 'HC-SR04', 'distance sensor')",
+    "list_sensor": "SELECT * FROM Sensor;",
+    "show_all_value": "SELECT * FROM Sensor_value;",
+    "add_light_value": "INSERT INTO Sensor_value (sensor_id, sensor_value, measure, time_stamp) VALUES (0, ?, 'lux', DATETIME('now'))",
+    "add_distance_value": "INSERT INTO Sensor_value (sensor_id, sensor_value, measure, time_stamp) VALUES (1, ?, 'cm', DATETIME('now'))"
+}
